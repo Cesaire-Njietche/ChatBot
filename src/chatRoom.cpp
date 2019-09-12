@@ -6,11 +6,11 @@ void chatRoom::initUserList(){
 }
 
 void chatRoom::begin(){
-    _bot->setMessageQueue(_msgQueue);
-    _bot->start();
     _user->setMessageQueue(_msgQueue);
     _user->start();
-    cout<<_msgQueue->size()<<endl;
+    this_thread::sleep_for(chrono::milliseconds(1));
+    _bot->setMessageQueue(_msgQueue);
+    _bot->start();
     /*for(size_t i = 0; i < _userList.size(); i++){
         _userList.at(i)->setMessageQueue(_msgQueue);
         _userList.at(i)->start();

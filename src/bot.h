@@ -6,7 +6,7 @@
 
 class bot: public agent, public std::enable_shared_from_this<bot>{
     public:
-        static Message searchResponse(string req);
+        static Message searchResponse(string &&req);
         void reply(Message &msg);
         bot(){}
         std::shared_ptr<bot> get_shared_this(){ return shared_from_this(); }
@@ -16,12 +16,10 @@ class bot: public agent, public std::enable_shared_from_this<bot>{
             future<Message> ftre;
             Message msg;
             while(true){
-                cout<<"msg queue bot:"<<getMessageQueue()->size()<<endl;
                 req = getMessageQueue()->receive();
                 
-                cout<<"Request :"<<req<<endl;
-                ftre = async(&searchResponse, req);
-                auto statut = ftre.wait_for(chrono::milliseconds(1));
+                ftre = async(&searchResponse, move(req));
+                auto statut = ftre.wait_for(chrono::milliseconds(10));
 
                 if(statut == future_status::ready){
                     msg = ftre.get();
@@ -29,8 +27,8 @@ class bot: public agent, public std::enable_shared_from_this<bot>{
                 else{
                     msg.setValue("Don't have enough time to process all the resources! :(");
                 }
-            
                 unique_lock<mutex> ulock(_mtxcout);
+                cout << "Bot  : ";
                 reply(msg);
                 ulock.unlock();
             }

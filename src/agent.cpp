@@ -3,13 +3,11 @@
 mutex agent::_mtxcout;
 
 void Message::botTyping(){
-    istringstream stream(value);
-    char c;
-    cout << "__";
-    while(stream >> c){
-        this_thread::sleep_for(chrono::milliseconds(500));
-        cout<<c;
+    for(const char c: value){
+        this_thread::sleep_for(chrono::milliseconds(1000));
+        cout<<c<<flush;
     }
+   
     cout<<endl;
 }
 

@@ -5,6 +5,7 @@
 #include<mutex>
 #include<memory>
 #include<thread>
+#include<chrono>
 #include<string>
 #include<queue>
 #include<iostream>
@@ -51,8 +52,8 @@ class MessageQueue{
 
 class agent{ //user and the bot classes inherit from this class
     public:
-        virtual void start(){}//
-        //virtual void chat(){};
+        virtual void start(){};
+        virtual void chat(){};
         void setMessageQueue(shared_ptr<MessageQueue<string>> mq) {_msgq = mq;}
         shared_ptr<MessageQueue<string>> getMessageQueue()const{return _msgq;}
 

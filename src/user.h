@@ -17,12 +17,12 @@ class user : public agent, public std::enable_shared_from_this<user>{
             string message;
             while(true){
                 unique_lock<mutex> lock(_mtxcout);
-                cout <<"__";
+                cout <<"User : ";
                 getline(cin, message);
                 lock.unlock();
                 getMessageQueue()->send(move(message));
-                cout<<"msg queue :"<<getMessageQueue()->size()<<endl;
-                this_thread::sleep_for(chrono::milliseconds(500));
+    
+                this_thread::sleep_for(chrono::milliseconds(10));//Gives time to the bot to retrieve the request
             }
         }
 

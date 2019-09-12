@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/katelynn/Desktop/ChatBot/src/agent.cpp
+agent.h
+/home/katelynn/Desktop/ChatBot/src/agent.h
+
 /home/katelynn/Desktop/ChatBot/src/agent.h
 future
 -
@@ -15,6 +19,8 @@ memory
 -
 thread
 -
+chrono
+-
 string
 -
 queue
@@ -23,36 +29,4 @@ iostream
 -
 sstream
 -
-
-/home/katelynn/Desktop/ChatBot/src/bot.h
-agent.h
-/home/katelynn/Desktop/ChatBot/src/agent.h
-fstream
--
-
-/home/katelynn/Desktop/ChatBot/src/chatMain.cpp
-chatRoom.h
-/home/katelynn/Desktop/ChatBot/src/chatRoom.h
-
-/home/katelynn/Desktop/ChatBot/src/chatRoom.cpp
-chatRoom.h
-/home/katelynn/Desktop/ChatBot/src/chatRoom.h
-
-/home/katelynn/Desktop/ChatBot/src/chatRoom.h
-mutex
--
-vector
--
-bot.h
-/home/katelynn/Desktop/ChatBot/src/bot.h
-user.h
-/home/katelynn/Desktop/ChatBot/src/user.h
-
-/home/katelynn/Desktop/ChatBot/src/user.cpp
-user.h
-/home/katelynn/Desktop/ChatBot/src/user.h
-
-/home/katelynn/Desktop/ChatBot/src/user.h
-agent.h
-/home/katelynn/Desktop/ChatBot/src/agent.h
 

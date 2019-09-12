@@ -1,13 +1,13 @@
 #include "bot.h"
 
-Message bot::searchResponse(string req){
+Message bot::searchResponse(string &&req){
     ifstream stream("../data/chat.txt");
     string li;
     if(stream){
         string line;
         bool found = false;
         while(getline(stream, line)){
-            if(line.find(req)!= string::npos){
+            if(line.find(req)!= string::npos and !found){
                 found = true;
                 continue;
             }
