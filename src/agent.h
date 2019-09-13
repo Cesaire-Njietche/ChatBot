@@ -52,8 +52,12 @@ class MessageQueue{
 
 class agent{ //user and the bot classes inherit from this class
     public:
-        virtual void start(){};
+        virtual void start(){}; //Start a thread with chat as the thread function 
         virtual void chat(){};
+        /* 
+            each of user and bot will use the same message queue. The following methods
+            allow them to set and get a given message queue for communication.
+        */ 
         void setMessageQueue(shared_ptr<MessageQueue<string>> mq) {_msgq = mq;}
         shared_ptr<MessageQueue<string>> getMessageQueue()const{return _msgq;}
 

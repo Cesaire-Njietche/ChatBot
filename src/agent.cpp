@@ -4,7 +4,7 @@ mutex agent::_mtxcout;
 
 void Message::botTyping(){
     for(const char c: value){
-        this_thread::sleep_for(chrono::milliseconds(1000));
+        this_thread::sleep_for(chrono::milliseconds(200));
         cout<<c<<flush;
     }
    
